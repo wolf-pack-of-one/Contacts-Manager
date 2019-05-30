@@ -19,6 +19,16 @@ public class ContactBuddy {
 
         //=== Show All Contacts ==//
 
+        //======= Delay ============//
+        public static void delay() {
+            try {
+                Thread.sleep(1000);
+            } catch(InterruptedException e) {
+                System.out.println(".....");
+            }
+        } //========End Pause==========//
+
+
     public static void displayContacts() {
 //        ArrayList<String> contactsArray = new ArrayList<>();
         // read the text file, if there are contacts display them.  If not, say "No contacts"
@@ -33,6 +43,9 @@ public class ContactBuddy {
         } catch (IOException e) {
             System.out.println(e);
         }
+        System.out.println("\n ====================\n");
+        delay();
+        delay();
 
     }
 
@@ -54,6 +67,12 @@ public class ContactBuddy {
                     contactInfo,
                     StandardOpenOption.APPEND
             );
+            delay();
+            System.out.println("\n");
+            System.out.println("New contact \"" + name + "\" added!\n");
+            delay();
+            delay();
+            System.out.println("===============\n");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -73,7 +92,8 @@ public class ContactBuddy {
 
     public static void startContacting() {
         System.out.println(
-                "Hey! I'm your Contact Buddy! Whaddaya want?\n" +
+                "Hey! I'm your Contact Buddy! Whatcha want?\n" +
+                        "---------------------- \n" +
                 "1. Browse All Contacts\n" +
                 "2. Add A New Contact\n" +
                 "3. Search By Name\n" +
@@ -84,8 +104,25 @@ public class ContactBuddy {
             String userSelection = inputter.nextLine();
 
             switch (userSelection) {
-                case userSelection.equals("1"):
-                    System.out.println("Hummdiggety.");
+                case "1":
+                    displayContacts();
+                    startContacting();
+                    break;
+                case "2":
+                    newContact();
+                    startContacting();
+                    break;
+                case "3":
+                    System.out.println(("This is my favorite option."));
+                    startContacting();
+                    break;
+                case "4":
+                    System.out.println("I don't want to do this.");
+                    startContacting();
+                    break;
+                case "5":
+                    System.out.println("Goodbye.");
+                    break;
 
             }
 
@@ -121,6 +158,7 @@ public class ContactBuddy {
         //===== Interaction with the user =======//
 
         startContacting();
+
 
 
 
