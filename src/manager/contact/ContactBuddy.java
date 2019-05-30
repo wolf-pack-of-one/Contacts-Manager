@@ -16,6 +16,7 @@ public class ContactBuddy {
 
 // I need to add getters and setters for the private data
 
+
         //=== Show All Contacts ==//
 
     public static void displayContacts() {
@@ -35,18 +36,17 @@ public class ContactBuddy {
 
     }
 
-
         //=== Add new contact ===//
 
     public static void newContact() {
         ArrayList<String> contactInfo = new ArrayList<>();
 
-        System.out.println("Please enter the contact name (Last, First)\n");
+        System.out.println("Please enter the contact name (Last, First): \n");
         String name = inputter.nextLine();
-        System.out.println("Please enter the contact phone number (###-###-####)\n");
+        System.out.println("Please enter the contact phone number (###-###-####): \n");
         String phone = inputter.nextLine();
 
-        contactInfo.add("Name: " + name + " / Phone: " + phone + "\n");
+        contactInfo.add("Name: " + name + " // Phone: " + phone + "\n");
 
         try {
             Files.write(
@@ -62,13 +62,34 @@ public class ContactBuddy {
     }
 
 
-
-
         //=== Search a contact by name ===//
 
 
 
         //=== Delete an existing contact ===//
+
+
+        //==== User interaction =====//
+
+    public static void startContacting() {
+        System.out.println(
+                "Hey! I'm your Contact Buddy! Whaddaya want?\n" +
+                "1. Browse All Contacts\n" +
+                "2. Add A New Contact\n" +
+                "3. Search By Name\n" +
+                "4. Delete Unwanted Contact\n" +
+                "5. Exit\n" +
+                "Enter an option (1, 2, 3, 4, or 5): "
+        );
+            String userSelection = inputter.nextLine();
+
+            switch (userSelection) {
+                case userSelection.equals("1"):
+                    System.out.println("Hummdiggety.");
+
+            }
+
+    }
 
 
 
@@ -98,8 +119,8 @@ public class ContactBuddy {
         }
 
         //===== Interaction with the user =======//
-displayContacts();
-        newContact();
+
+        startContacting();
 
 
 
