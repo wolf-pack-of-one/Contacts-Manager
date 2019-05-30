@@ -1,3 +1,5 @@
+package manager.contact;
+
 import java.nio.file.*;
 import java.util.Scanner;
 import java.io.IOException;
@@ -12,7 +14,7 @@ public class ContactBuddy {
 
     static Scanner inputter = new Scanner(System.in);
 
-
+// I need to add getters and setters for the private data
 
         //=== Show All Contacts ==//
 
@@ -35,6 +37,30 @@ public class ContactBuddy {
 
 
         //=== Add new contact ===//
+
+    public static void newContact() {
+        ArrayList<String> contactInfo = new ArrayList<>();
+
+        System.out.println("Please enter the contact name (Last, First)\n");
+        String name = inputter.nextLine();
+        System.out.println("Please enter the contact phone number (###-###-####)\n");
+        String phone = inputter.nextLine();
+
+        contactInfo.add("Name: " + name + " / Phone: " + phone + "\n");
+
+        try {
+            Files.write(
+                    file,
+                    contactInfo,
+                    StandardOpenOption.APPEND
+            );
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 
@@ -73,6 +99,7 @@ public class ContactBuddy {
 
         //===== Interaction with the user =======//
 displayContacts();
+        newContact();
 
 
 
